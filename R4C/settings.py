@@ -47,7 +47,8 @@ INSTALLED_APPS = [
 
     'customers',
     'orders',
-    'robots'
+    'robots',
+    'excel_export'
 ]
 
 MIDDLEWARE = [

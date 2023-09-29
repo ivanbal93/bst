@@ -18,9 +18,11 @@ from django.urls import path
 
 from robots.urls import urlpatterns as robots_urls
 
+from excel_export.urls import urlpatterns as excel_export_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     robots_urls[0],
+    excel_export_urls[0]
 ]
 
