@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 
     'customers',
     'orders',
-    'robots',
+    'robots.apps.RobotsConfig',
     'excel_export'
 ]
 
@@ -132,3 +132,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = os.getenv('email_user')
+EMAIL_HOST_PASSWORD = os.getenv('email_pwd')
+EMAIL_USE_SSL = True
