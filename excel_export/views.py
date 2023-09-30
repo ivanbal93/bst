@@ -14,15 +14,17 @@ actual_date = today - timedelta(days=7)
 
 def export_to_xls(request):
     """
-    Функция экспорта .xlsx со сводкой о производстве роботов
+    Функция экспорта .xls со сводкой о производстве роботов
     """
 
+    # Форирование списка доступных моделей
     models_queryset = Robot.objects.all().values('model')
     models_list = []
     for obj in models_queryset:
         if obj['model'] not in models_list:
             models_list.append(obj['model'])
 
+    # Список датасетов, на основе которых будет сформирована итоговая таблица
     ds_list = []
     for model_title in models_list:
         ds = tablib.Dataset()
