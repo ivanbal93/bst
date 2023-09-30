@@ -26,7 +26,7 @@ def post(request):
         data = json.loads(request.body)
         robot_form = NewRobotForm(data)
 
-        if robot_form.is_valid():
+        if robot_form.is_valid():  # Проверка валидности введённых данных
             new_object = Robot.objects.create(
                 serial=data["serial"],
                 model=data["model"],
