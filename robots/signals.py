@@ -25,6 +25,8 @@ def notify_customer(sender, instance, created, **kwargs):
 
     orders = Order.objects.filter(robot_serial=instance.serial).values()
 
+    # Услвоие выполняется, если создаётся объект класса Robot с серийным номером, 
+    # фигурирующиим в списке серийных номеров объектов класса Order
     if created and instance.serial in serials_list:
         for order in orders:
             # Использую filter(), потому что серийный номер не уникален.
